@@ -1,0 +1,483 @@
+{% comment %}
+  Newsletter Signup Section
+  Collects email addresses for newsletter subscription
+{% endcomment %}
+
+<div class="newsletter-signup section section--with-border-top color-{{ section.settings.color_scheme }}">
+  <div class="newsletter-signup__container page-width">
+    <div class="newsletter-signup__content">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="newsletter-signup__heading section__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.subheading != blank -%}
+        <p class="newsletter-signup__subheading section__subheading" style="color: #111827 !important; font-weight: 500 !important;">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+
+      <div class="newsletter-signup__form-wrapper">
+        {% form 'customer', class: 'newsletter-form' %}
+          {%- if form.posted_successfully? -%}
+            <div class="newsletter-form__success">
+              <i class="fa-solid fa-circle-check"></i>
+              <p>{{ section.settings.success_message }}</p>
+            </div>
+          {%- else -%}
+            <div class="newsletter-form__fields">
+              <div class="newsletter-form__field-wrapper">
+                <input
+                  type="email"
+                  name="contact[email]"
+                  id="newsletter-email-{{ section.id }}"
+                  class="newsletter-form__input"
+                  placeholder="{{ section.settings.placeholder }}"
+                  required
+                  aria-label="Email address"
+                >
+                <button
+                  type="submit"
+                  class="newsletter-form__button btn-primary"
+                  aria-label="Subscribe"
+                >
+                  {{ section.settings.button_label }}
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+
+              {%- if form.errors -%}
+                <div class="newsletter-form__error">
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  {{ form.errors | default_errors }}
+                </div>
+              {%- endif -%}
+
+              {%- if section.settings.show_privacy_text -%}
+                <p class="newsletter-form__privacy" style="color: #111827 !important; opacity: 1 !important;">
+                  {{ section.settings.privacy_text }}
+                </p>
+              {%- endif -%}
+            </div>
+
+            <input type="hidden" name="contact[tags]" value="newsletter">
+          {%- endif -%}
+        {% endform %}
+      </div>
+
+      {%- if section.settings.show_social_icons -%}
+        <div class="newsletter-signup__social">
+          <p class="newsletter-signup__social-heading">Follow Us</p>
+          <div class="newsletter-signup__social-icons">
+            {%- if section.settings.instagram_url != blank -%}
+              <a href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+            {%- endif -%}
+            {%- if section.settings.tiktok_url != blank -%}
+              <a href="{{ section.settings.tiktok_url }}" target="_blank" rel="noopener" aria-label="TikTok">
+                <i class="fa-brands fa-tiktok"></i>
+              </a>
+            {%- endif -%}
+            {%- if section.settings.twitter_url != blank -%}
+              <a href="{{ section.settings.twitter_url }}" target="_blank" rel="noopener" aria-label="Twitter">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+            {%- endif -%}
+            {%- if section.settings.youtube_url != blank -%}
+              <a href="{{ section.settings.youtube_url }}" target="_blank" rel="noopener" aria-label="YouTube">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+            {%- endif -%}
+            {%- if section.settings.facebook_url != blank -%}
+              <a href="{{ section.settings.facebook_url }}" target="_blank" rel="noopener" aria-label="Facebook">
+                <i class="fa-brands fa-facebook"></i>
+              </a>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.image != blank -%}
+      <div class="newsletter-signup__media">
+        <img
+          srcset="
+            {%- if section.settings.image.width >= 375 -%}{{ section.settings.image | image_url: width: 375 }} 375w,{%- endif -%}
+            {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+            {%- if section.settings.image.width >= 1100 -%}{{ section.settings.image | image_url: width: 1100 }} 1100w,{%- endif -%}
+            {{ section.settings.image | image_url }} {{ section.settings.image.width }}w
+          "
+          sizes="(min-width: 990px) 50vw, 100vw"
+          src="{{ section.settings.image | image_url: width: 750 }}"
+          loading="lazy"
+          alt="{{ section.settings.image.alt | escape }}"
+          class="newsletter-signup__image"
+        >
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<style>
+  .newsletter-signup {
+    padding: var(--space-16) 0;
+    background: var(--warm-white);
+  }
+
+  .newsletter-signup.gradient {
+    background: linear-gradient(135deg, var(--purple-500), var(--pink-500));
+  }
+
+  .newsletter-signup__container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .newsletter-signup__content {
+    text-align: center;
+  }
+
+  @media screen and (min-width: 990px) {
+    .newsletter-signup__content {
+      text-align: left;
+    }
+  }
+
+  .newsletter-signup__heading {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 24px;
+    line-height: 1.1;
+  }
+
+  .gradient .newsletter-signup__heading {
+    color: var(--white);
+  }
+
+  @media screen and (min-width: 750px) {
+    .newsletter-signup__heading {
+      font-size: 3.5rem;
+    }
+  }
+
+  .newsletter-signup .newsletter-signup__subheading {
+    font-size: 1.25rem !important;
+    color: #111827 !important;
+    margin-bottom: 40px !important;
+    line-height: 1.7 !important;
+    font-weight: 500 !important;
+  }
+
+  .gradient .newsletter-signup__subheading {
+    color: var(--white);
+    opacity: 0.95;
+  }
+
+  .newsletter-signup__form-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .newsletter-form__fields {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .newsletter-form__field-wrapper {
+    display: flex;
+    gap: var(--space-3);
+    flex-direction: column;
+    background: var(--white);
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 750px) {
+    .newsletter-form__field-wrapper {
+      flex-direction: row;
+    }
+  }
+
+  .newsletter-form__input {
+    flex: 1;
+    padding: 14px 20px;
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    color: var(--gray-900);
+    background: transparent;
+    transition: all 0.3s ease;
+  }
+
+  .newsletter-form__input:focus {
+    outline: none;
+    background: var(--off-white);
+  }
+
+  .newsletter-form__input::placeholder {
+    color: var(--gray-500);
+  }
+
+  .newsletter-form__button {
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    justify-content: center;
+    font-size: 1.0625rem;
+    padding: 14px 28px;
+  }
+
+  .newsletter-form__success {
+    background: var(--cyan-500);
+    color: var(--white);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: 1.125rem;
+  }
+
+  .newsletter-form__success i {
+    font-size: 1.5rem;
+  }
+
+  .newsletter-form__error {
+    background: var(--pink-500);
+    color: var(--white);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 0.875rem;
+  }
+
+  .newsletter-signup .newsletter-form__privacy {
+    font-size: 0.875rem !important;
+    color: #111827 !important;
+    line-height: 1.6 !important;
+    margin-top: 20px !important;
+    margin-bottom: 48px !important;
+    opacity: 1 !important;
+  }
+
+  .gradient .newsletter-form__privacy {
+    color: var(--white);
+    opacity: 0.8;
+  }
+
+  .newsletter-signup__social {
+    padding-top: 48px;
+    border-top: 2px solid rgba(0, 0, 0, 0.08);
+    margin-top: 48px;
+  }
+
+  .newsletter-signup__social-heading {
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 20px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .gradient .newsletter-signup__social-heading {
+    color: var(--white);
+  }
+
+  .newsletter-signup__social-icons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 990px) {
+    .newsletter-signup__social-icons {
+      justify-content: flex-start;
+    }
+  }
+
+  .newsletter-signup__social-icons a {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .newsletter-signup__social-icons a:nth-child(1) {
+    background: var(--purple-500);
+    color: var(--white);
+  }
+
+  .newsletter-signup__social-icons a:nth-child(2) {
+    background: var(--pink-500);
+    color: var(--white);
+  }
+
+  .newsletter-signup__social-icons a:nth-child(3) {
+    background: var(--cyan-500);
+    color: var(--white);
+  }
+
+  .newsletter-signup__social-icons a:nth-child(4) {
+    background: var(--purple-600);
+    color: var(--white);
+  }
+
+  .newsletter-signup__social-icons a:nth-child(5) {
+    background: var(--pink-600);
+    color: var(--white);
+  }
+
+  .newsletter-signup__social-icons a:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .newsletter-signup__media {
+    position: relative;
+  }
+
+  .newsletter-signup__image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Animation */
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .newsletter-signup__content {
+    animation: slideInRight 0.8s ease-out;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Newsletter Signup",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Join the Unmuted Community"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Get exclusive updates, behind-the-scenes content, and special offers delivered straight to your inbox."
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Email placeholder",
+      "default": "Enter your email"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Subscribe"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thanks for subscribing! Check your inbox for updates."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_privacy_text",
+      "label": "Show privacy text",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "privacy_text",
+      "label": "Privacy text",
+      "default": "We respect your privacy. Unsubscribe at any time."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Social Media"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social_icons",
+      "label": "Show social icons",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "tiktok_url",
+      "label": "TikTok URL"
+    },
+    {
+      "type": "url",
+      "id": "twitter_url",
+      "label": "Twitter URL"
+    },
+    {
+      "type": "url",
+      "id": "youtube_url",
+      "label": "YouTube URL"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter Signup",
+      "settings": {
+        "heading": "Join the Unmuted Community",
+        "subheading": "Get exclusive updates, behind-the-scenes content, and special offers delivered straight to your inbox.",
+        "button_label": "Subscribe"
+      }
+    }
+  ]
+}
+{% endschema %}

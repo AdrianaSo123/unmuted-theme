@@ -1,0 +1,111 @@
+{% comment %}
+  Unmuted Social Icons Component
+  Displays social media icons with links from theme settings
+{% endcomment %}
+
+<div class="unmuted-social-icons">
+  {%- if settings.social_instagram_url != blank -%}
+    <a
+      href="{{ settings.social_instagram_url }}"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="unmuted-social-icons__link"
+      aria-label="Instagram"
+    >
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+  {%- endif -%}
+
+  {%- if settings.social_tiktok_url != blank -%}
+    <a
+      href="{{ settings.social_tiktok_url }}"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="unmuted-social-icons__link"
+      aria-label="TikTok"
+    >
+      <i class="fa-brands fa-tiktok"></i>
+    </a>
+  {%- endif -%}
+
+  {%- if settings.social_twitter_url != blank -%}
+    <a
+      href="{{ settings.social_twitter_url }}"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="unmuted-social-icons__link"
+      aria-label="Twitter"
+    >
+      <i class="fa-brands fa-twitter"></i>
+    </a>
+  {%- endif -%}
+
+  {%- if settings.social_youtube_url != blank -%}
+    <a
+      href="{{ settings.social_youtube_url }}"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="unmuted-social-icons__link"
+      aria-label="YouTube"
+    >
+      <i class="fa-brands fa-youtube"></i>
+    </a>
+  {%- endif -%}
+
+  {%- if settings.social_facebook_url != blank -%}
+    <a
+      href="{{ settings.social_facebook_url }}"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="unmuted-social-icons__link"
+      aria-label="Facebook"
+    >
+      <i class="fa-brands fa-facebook"></i>
+    </a>
+  {%- endif -%}
+</div>
+
+<style>
+  .unmuted-social-icons {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+  }
+
+  .unmuted-social-icons__link {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: 2px solid transparent;
+  }
+
+  .unmuted-social-icons__link:hover {
+    background: var(--purple-500);
+    transform: translateY(-2px);
+  }
+
+  .unmuted-social-icons__link:nth-child(2):hover {
+    background: var(--pink-500);
+  }
+
+  .unmuted-social-icons__link:nth-child(3):hover {
+    background: var(--cyan-500);
+  }
+
+  /* Footer variant (if used in footer) */
+  .footer .unmuted-social-icons__link {
+    background: var(--dark-800);
+  }
+
+  .footer .unmuted-social-icons__link:hover {
+    background: var(--purple-500);
+  }
+</style>
