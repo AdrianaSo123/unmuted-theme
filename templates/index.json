@@ -42,49 +42,6 @@
         "padding_bottom": 36
       }
     },
-    "video_gallery": {
-      "type": "video-gallery",
-      "blocks": {
-        "video_1": {
-          "type": "video",
-          "settings": {
-            "title": "Latest Episode",
-            "description": "Check out our newest content",
-            "video_url": "",
-            "cover_image": ""
-          }
-        },
-        "video_2": {
-          "type": "video",
-          "settings": {
-            "title": "Behind the Scenes",
-            "description": "See how we create our content",
-            "video_url": "",
-            "cover_image": ""
-          }
-        },
-        "video_3": {
-          "type": "video",
-          "settings": {
-            "title": "Fan Favorites",
-            "description": "Most popular videos",
-            "video_url": "",
-            "cover_image": ""
-          }
-        }
-      },
-      "block_order": [
-        "video_1",
-        "video_2",
-        "video_3"
-      ],
-      "settings": {
-        "heading": "Watch Our Videos",
-        "subheading": "Catch up on the latest content",
-        "columns_desktop": "3",
-        "color_scheme": "scheme-1"
-      }
-    },
     "featured_shows": {
       "type": "featured-shows",
       "settings": {
