@@ -44,12 +44,96 @@
     },
     "featured_shows": {
       "type": "featured-shows",
+      "blocks": {
+        "show_1": {
+          "type": "show",
+          "settings": {
+            "title": "Gossip Girl",
+            "description": "Wealth, privilege, and problematic faves. We unpack the class dynamics, toxic relationships, and why we still love these messy characters.",
+            "button_label": "Watch Playlist",
+            "button_link": "/pages/playlists"
+          }
+        },
+        "show_2": {
+          "type": "show",
+          "settings": {
+            "title": "Pretty Little Liars",
+            "description": "Mystery, friendship, and questionable adult-teen relationships. We dive into the show's handling of mental health, LGBTQ+ rep, and why we stayed for seven seasons of plot holes.",
+            "button_label": "Watch Playlist",
+            "button_link": "/pages/playlists"
+          }
+        },
+        "show_3": {
+          "type": "show",
+          "settings": {
+            "title": "Teen Wolf",
+            "description": "The MTV show that actually got representation right??",
+            "button_label": "Watch Playlist",
+            "button_link": "/pages/playlists"
+          }
+        },
+        "show_4": {
+          "type": "show",
+          "settings": {
+            "title": "The Vampire Diaries",
+            "description": "The vampire love triangle we were all obsessed with... and the Bonnie Bennett problem.",
+            "button_label": "Watch Playlist",
+            "button_link": "/pages/playlists"
+          }
+        },
+        "show_5": {
+          "type": "show",
+          "settings": {
+            "title": "Glee",
+            "description": "Glee really said \"representation!\" then gave us... that.",
+            "button_label": "Watch Playlist",
+            "button_link": "/pages/playlists"
+          }
+        },
+        "show_6": {
+          "type": "show",
+          "settings": {
+            "title": "The O.C.",
+            "description": "Orange County wealth and the outsider narrative.",
+            "button_label": "Watch Playlist",
+            "button_link": "/pages/playlists"
+          }
+        }
+      },
+      "block_order": ["show_1", "show_2", "show_3", "show_4", "show_5", "show_6"],
       "settings": {
         "heading": "Pick Your Fandom, Find Your Playlist"
       }
     },
     "how_it_works": {
       "type": "how-it-works",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "number": "1",
+            "title": "Choose Your Show",
+            "description": "Start with any of our featured shows: Gossip Girl, Pretty Little Liars, Teen Wolf, The Vampire Diaries, Glee, or The O.C. Each show page features curated analysis from multiple creators, focusing on representation, class dynamics, and cultural impact."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "number": "2",
+            "title": "Watch Critical Analysis",
+            "description": "Our creators don't just recap - they analyze. Expect deep dives into LGBTQ+ representation, class commentary, problematic storylines, and why certain portrayals matter. Multiple perspectives on the same episodes help you see these shows with fresh, critical eyes."
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "number": "3",
+            "title": "Develop Media Literacy",
+            "description": "Beyond entertainment, you're building media literacy skills. Learn to identify representation patterns, understand cultural context, and develop your own critical voice. Join discussions that matter and contribute to meaningful media analysis."
+          }
+        }
+      },
+      "block_order": ["step_1", "step_2", "step_3"],
       "settings": {
         "heading": "How It Works",
         "subheading": "Commentary that's actually worth your time"
@@ -57,6 +141,33 @@
     },
     "testimonials": {
       "type": "testimonials",
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "finally someone talking about the REAL issues in these shows. the bonnie bennett analysis had me crying",
+            "name": "Maria",
+            "details": "21, she/her"
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "i never thought about class dynamics in gossip girl until i watched these videos. now i can't unsee it (in a good way)",
+            "name": "Jay",
+            "details": "19, they/them"
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "love that there's multiple perspectives on the same episodes. seeing how different people notice different things is so valuable",
+            "name": "Alex",
+            "details": "20, she/they"
+          }
+        }
+      },
+      "block_order": ["testimonial_1", "testimonial_2", "testimonial_3"],
       "settings": {
         "heading": "What Our Community Says",
         "subheading": "Real reactions from fans who found their people"
