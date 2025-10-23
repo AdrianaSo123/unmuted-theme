@@ -16,7 +16,7 @@
         "heading_size": "h0",
         "subheading": "Critical media analysis that's actually funny. We unpack representation, call out problematic tropes, and make media literacy entertaining.",
         "button_label": "Watch Content",
-        "button_link": "/pages/playlists",
+        "button_link": "/pages/playlist",
         "button_label_2": "Join Discord",
         "button_link_2": "https://discord.gg/YOUR_INVITE_CODE",
         "color_scheme": "scheme-1"
@@ -51,7 +51,7 @@
             "title": "Gossip Girl",
             "description": "Wealth, privilege, and problematic faves. We unpack the class dynamics, toxic relationships, and why we still love these messy characters.",
             "button_label": "Watch Playlist",
-            "button_link": "/pages/playlists"
+            "button_link": "/pages/playlist"
           }
         },
         "show_2": {
@@ -60,7 +60,7 @@
             "title": "Pretty Little Liars",
             "description": "Mystery, friendship, and questionable adult-teen relationships. We dive into the show's handling of mental health, LGBTQ+ rep, and why we stayed for seven seasons of plot holes.",
             "button_label": "Watch Playlist",
-            "button_link": "/pages/playlists"
+            "button_link": "/pages/playlist"
           }
         },
         "show_3": {
@@ -69,7 +69,7 @@
             "title": "Teen Wolf",
             "description": "The MTV show that actually got representation right??",
             "button_label": "Watch Playlist",
-            "button_link": "/pages/playlists"
+            "button_link": "/pages/playlist"
           }
         },
         "show_4": {
@@ -78,7 +78,7 @@
             "title": "The Vampire Diaries",
             "description": "The vampire love triangle we were all obsessed with... and the Bonnie Bennett problem.",
             "button_label": "Watch Playlist",
-            "button_link": "/pages/playlists"
+            "button_link": "/pages/playlist"
           }
         },
         "show_5": {
@@ -87,7 +87,7 @@
             "title": "Glee",
             "description": "Glee really said \"representation!\" then gave us... that.",
             "button_label": "Watch Playlist",
-            "button_link": "/pages/playlists"
+            "button_link": "/pages/playlist"
           }
         },
         "show_6": {
@@ -96,7 +96,7 @@
             "title": "The O.C.",
             "description": "Orange County wealth and the outsider narrative.",
             "button_label": "Watch Playlist",
-            "button_link": "/pages/playlists"
+            "button_link": "/pages/playlist"
           }
         }
       },
