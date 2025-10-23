@@ -1,0 +1,139 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_banner": {
+      "type": "hero-banner",
+      "settings": {
+        "heading": "Diverse Voices on 2010s Teen Dramas",
+        "heading_size": "h0",
+        "subheading": "Critical media analysis that's actually funny. We unpack representation, call out problematic tropes, and make media literacy entertaining.",
+        "button_label": "Watch Content",
+        "button_link": "/pages/playlists",
+        "button_label_2": "Join Discord",
+        "button_link_2": "https://discord.gg/YOUR_INVITE_CODE",
+        "color_scheme": "scheme-1"
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured Products",
+        "heading_size": "h2",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "show_view_all": true,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "video_gallery": {
+      "type": "video-gallery",
+      "blocks": {
+        "video_1": {
+          "type": "video",
+          "settings": {
+            "title": "Latest Episode",
+            "description": "Check out our newest content",
+            "video_url": "",
+            "cover_image": ""
+          }
+        },
+        "video_2": {
+          "type": "video",
+          "settings": {
+            "title": "Behind the Scenes",
+            "description": "See how we create our content",
+            "video_url": "",
+            "cover_image": ""
+          }
+        },
+        "video_3": {
+          "type": "video",
+          "settings": {
+            "title": "Fan Favorites",
+            "description": "Most popular videos",
+            "video_url": "",
+            "cover_image": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_1",
+        "video_2",
+        "video_3"
+      ],
+      "settings": {
+        "heading": "Watch Our Videos",
+        "subheading": "Catch up on the latest content",
+        "columns_desktop": "3",
+        "color_scheme": "scheme-1"
+      }
+    },
+    "about_unmuted": {
+      "type": "about-unmuted",
+      "blocks": {
+        "value_1": {
+          "type": "value",
+          "settings": {
+            "icon": "lightbulb",
+            "title": "Smart Analysis, Actually Funny",
+            "description": "We don't just recap—we analyze. Why did Glee's diversity storylines work or fail? What made Gossip Girl's class commentary so problematic? Critical thinking that doesn't put you to sleep."
+          }
+        },
+        "value_2": {
+          "type": "value",
+          "settings": {
+            "icon": "users",
+            "title": "Multiple POVs, Real Representation",
+            "description": "Creators from different backgrounds break down the same shows. See how race, gender, sexuality, and class shape what we notice in these stories."
+          }
+        },
+        "value_3": {
+          "type": "value",
+          "settings": {
+            "icon": "graduation-cap",
+            "title": "Media Literacy Made Fun",
+            "description": "Learn to spot good and bad representation while laughing. We make media criticism accessible—no film degree required."
+          }
+        }
+      },
+      "block_order": [
+        "value_1",
+        "value_2",
+        "value_3"
+      ],
+      "settings": {
+        "heading": "About Unmuted",
+        "mission_title": "Our Mission",
+        "mission_text": "<p>Diverse voices on 2010s teen dramas. Critical media analysis that's actually funny. We unpack representation, call out problematic tropes, and make media literacy entertaining.</p>",
+        "why_title": "Why This Store Exists",
+        "why_text": "<p>This merch store keeps our platform possible. Every purchase supports smart, funny pop culture commentary where every fan feels at home. We flip the script on traditional media criticism—making it accessible, diverse, and actually entertaining.</p>",
+        "button_label": "Visit Our Platform",
+        "button_link": "",
+        "color_scheme": "scheme-1"
+      }
+    }
+  },
+  "order": [
+    "hero_banner",
+    "about_unmuted",
+    "featured_collection",
+    "video_gallery"
+  ]
+}
