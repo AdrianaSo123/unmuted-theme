@@ -1,0 +1,242 @@
+{% comment %}
+  Featured Shows Section - Pick Your Fandom
+{% endcomment %}
+
+<section class="featured-shows" id="featured-shows-{{ section.id }}">
+  <div class="featured-shows__container page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="featured-shows__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="featured-shows__grid">
+        {%- for block in section.blocks -%}
+          <div class="show-card" {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}
+              <div class="show-card__image">
+                <img
+                  src="{{ block.settings.image | image_url: width: 600 }}"
+                  alt="{{ block.settings.title | escape }}"
+                  loading="lazy"
+                  width="600"
+                  height="400"
+                >
+              </div>
+            {%- endif -%}
+            
+            <div class="show-card__content">
+              {%- if block.settings.title != blank -%}
+                <h3 class="show-card__title">{{ block.settings.title }}</h3>
+              {%- endif -%}
+              
+              {%- if block.settings.description != blank -%}
+                <p class="show-card__description">{{ block.settings.description }}</p>
+              {%- endif -%}
+              
+              {%- if block.settings.button_label != blank -%}
+                <a href="{{ block.settings.button_link }}" class="show-card__button">
+                  {{ block.settings.button_label }}
+                </a>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .featured-shows {
+    padding: 80px 0;
+    background: #FFFFFF;
+  }
+
+  .featured-shows__heading {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #111827;
+    background: linear-gradient(135deg, var(--purple-500), var(--pink-500));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  @media screen and (min-width: 750px) {
+    .featured-shows__heading {
+      font-size: 3rem;
+    }
+  }
+
+  .featured-shows__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .featured-shows__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .featured-shows__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .show-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .show-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .show-card__image {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--purple-500), var(--pink-500));
+  }
+
+  .show-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .show-card:hover .show-card__image img {
+    transform: scale(1.05);
+  }
+
+  .show-card__content {
+    padding: 24px;
+  }
+
+  .show-card__title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 12px;
+  }
+
+  .show-card__description {
+    font-size: 1rem;
+    color: #4B5563;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .show-card__button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--purple-500), var(--pink-500));
+    color: var(--white);
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .show-card__button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Featured Shows",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Pick Your Fandom, Find Your Playlist"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "show",
+      "name": "Show",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Show Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Show Title",
+          "default": "Gossip Girl"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Wealth, privilege, and problematic faves."
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Watch Playlist"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Shows",
+      "blocks": [
+        {
+          "type": "show",
+          "settings": {
+            "title": "Gossip Girl",
+            "description": "Wealth, privilege, and problematic faves. We unpack the class dynamics, toxic relationships, and why we still love these messy characters.",
+            "button_label": "Watch Playlist",
+            "button_link": "/pages/playlists"
+          }
+        },
+        {
+          "type": "show",
+          "settings": {
+            "title": "Pretty Little Liars",
+            "description": "Mystery, friendship, and questionable adult-teen relationships. We dive into the show's handling of mental health, LGBTQ+ rep, and why we stayed for seven seasons.",
+            "button_label": "Watch Playlist",
+            "button_link": "/pages/playlists"
+          }
+        },
+        {
+          "type": "show",
+          "settings": {
+            "title": "Teen Wolf",
+            "description": "The MTV show that actually got representation right??",
+            "button_label": "Watch Playlist",
+            "button_link": "/pages/playlists"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,207 @@
+{% comment %}
+  Testimonials Section - What Our Community Says
+{% endcomment %}
+
+<section class="testimonials" id="testimonials-{{ section.id }}">
+  <div class="testimonials__container page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="testimonials__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    
+    {%- if section.settings.subheading != blank -%}
+      <p class="testimonials__subheading">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="testimonials__grid">
+        {%- for block in section.blocks -%}
+          <div class="testimonial-card" {{ block.shopify_attributes }}>
+            {%- if block.settings.quote != blank -%}
+              <p class="testimonial-card__quote">"{{ block.settings.quote }}"</p>
+            {%- endif -%}
+            
+            <div class="testimonial-card__author">
+              {%- if block.settings.name != blank -%}
+                <p class="testimonial-card__name">{{ block.settings.name }}</p>
+              {%- endif -%}
+              
+              {%- if block.settings.details != blank -%}
+                <p class="testimonial-card__details">{{ block.settings.details }}</p>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .testimonials {
+    padding: 80px 0;
+    background: #FFFFFF;
+  }
+
+  .testimonials__heading {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 16px;
+    color: #111827;
+    background: linear-gradient(135deg, var(--purple-500), var(--pink-500));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  @media screen and (min-width: 750px) {
+    .testimonials__heading {
+      font-size: 3rem;
+    }
+  }
+
+  .testimonials__subheading {
+    text-align: center;
+    font-size: 1.125rem;
+    color: #6B7280;
+    margin-bottom: 60px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .testimonials__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .testimonials__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .testimonials__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .testimonial-card {
+    background: #F9FAFB;
+    border-radius: 16px;
+    padding: 32px;
+    border-left: 4px solid;
+    border-image: linear-gradient(135deg, var(--purple-500), var(--pink-500)) 1;
+    transition: all 0.3s ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .testimonial-card__quote {
+    font-size: 1.0625rem;
+    color: #374151;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .testimonial-card__author {
+    border-top: 1px solid #E5E7EB;
+    padding-top: 16px;
+  }
+
+  .testimonial-card__name {
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 4px;
+  }
+
+  .testimonial-card__details {
+    font-size: 0.875rem;
+    color: #6B7280;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What Our Community Says"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Real reactions from fans who found their people"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "This is exactly what I've been looking for!"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Maria"
+        },
+        {
+          "type": "text",
+          "id": "details",
+          "label": "Details",
+          "default": "21, she/her"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "finally someone talking about the REAL issues in these shows. the bonnie bennett analysis had me crying",
+            "name": "Maria",
+            "details": "21, she/her"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "i never thought about class dynamics in gossip girl until i watched these videos. now i can't unsee it (in a good way)",
+            "name": "Jay",
+            "details": "19, they/them"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "love that there's multiple perspectives on the same episodes. seeing how different people notice different things is so valuable",
+            "name": "Alex",
+            "details": "20, she/they"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

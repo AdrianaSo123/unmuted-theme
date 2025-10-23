@@ -85,6 +85,26 @@
         "color_scheme": "scheme-1"
       }
     },
+    "featured_shows": {
+      "type": "featured-shows",
+      "settings": {
+        "heading": "Pick Your Fandom, Find Your Playlist"
+      }
+    },
+    "how_it_works": {
+      "type": "how-it-works",
+      "settings": {
+        "heading": "How It Works",
+        "subheading": "Commentary that's actually worth your time"
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "heading": "What Our Community Says",
+        "subheading": "Real reactions from fans who found their people"
+      }
+    },
     "about_unmuted": {
       "type": "about-unmuted",
       "blocks": {
@@ -133,7 +153,9 @@
   "order": [
     "hero_banner",
     "about_unmuted",
-    "featured_collection",
-    "video_gallery"
+    "featured_shows",
+    "how_it_works",
+    "testimonials",
+    "featured_collection"
   ]
 }
