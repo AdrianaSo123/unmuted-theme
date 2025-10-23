@@ -1,0 +1,456 @@
+{% comment %}
+  About Unmuted Section - Simple 3 value cards
+{% endcomment %}
+
+<div class="about-unmuted section color-{{ section.settings.color_scheme }}" id="about-unmuted">
+  <div class="about-unmuted__container page-width">
+    {%- if section.blocks.size > 0 -%}
+      <div class="about-unmuted__values">
+        {%- for block in section.blocks -%}
+          {%- assign icon_name = block.settings.icon | default: 'lightbulb' -%}
+          <div class="about-unmuted__value-card" {{ block.shopify_attributes }}>
+            {%- if icon_name != blank -%}
+              <div class="about-unmuted__value-icon">
+                {%- case icon_name -%}
+                  {%- when 'brain' -%}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M184 0c30.9 0 56 25.1 56 56V456c0 30.9-25.1 56-56 56c-28.9 0-52.7-21.9-55.7-50.1c-5.2 1.4-10.7 2.1-16.3 2.1c-35.3 0-64-28.7-64-64c0-7.4 1.3-14.6 3.6-21.2C21.4 367.4 0 338.2 0 304c0-31.9 18.7-59.5 45.8-72.3C37.1 220.8 32 207 32 192c0-30.7 21.6-56.3 50.4-62.6C80.8 123.9 80 118 80 112c0-29.9 20.6-55.1 48.3-62.1C131.3 21.9 155.1 0 184 0zM328 0c28.9 0 52.6 21.9 55.7 49.9c27.8 7 48.3 32.1 48.3 62.1c0 6-.8 11.9-2.4 17.4c28.8 6.2 50.4 31.9 50.4 62.6c0 15-5.1 28.8-13.8 39.7C493.3 244.5 512 272.1 512 304c0 34.2-21.4 63.4-51.6 74.8c2.3 6.6 3.6 13.8 3.6 21.2c0 35.3-28.7 64-64 64c-5.6 0-11.1-.7-16.3-2.1c-3 28.2-26.8 50.1-55.7 50.1c-30.9 0-56-25.1-56-56V56c0-30.9 25.1-56 56-56z"/></svg>
+                  {%- when 'users' -%}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"/></svg>
+                  {%- when 'lightbulb' -%}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2l0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4l0 0c19.8 27.1 39.7 54.4 49.2 86.2H272zM192 512c44.2 0 80-35.8 80-80V416H112v16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/></svg>
+                  {%- when 'graduation-cap' -%}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9v28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5V291.9c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg>
+                  {%- else -%}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/></svg>
+                {%- endcase -%}
+              </div>
+            {%- endif -%}
+            {%- if block.settings.title != blank -%}
+              <h3 class="about-unmuted__value-title">{{ block.settings.title }}</h3>
+            {%- endif -%}
+            {%- if block.settings.description != blank -%}
+              <p class="about-unmuted__value-description">{{ block.settings.description }}</p>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<style>
+  .about-unmuted {
+    padding: var(--space-16) 0;
+    background: #FFFFFF;
+  }
+
+  .about-unmuted__heading {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 80px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  @media screen and (min-width: 750px) {
+    .about-unmuted__heading {
+      font-size: 3.5rem;
+      margin-bottom: 100px;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .about-unmuted__heading {
+      font-size: 4.5rem;
+    }
+  }
+
+  .about-unmuted__content {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .about-unmuted__content {
+      gap: 80px;
+    }
+  }
+
+  /* Story Section */
+  .about-unmuted__story {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 749px) {
+    .about-unmuted__story {
+      gap: 60px;
+    }
+  }
+
+  .about-unmuted__image-wrapper {
+    position: relative;
+  }
+
+  .about-unmuted__image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .about-unmuted__text {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .about-unmuted__text {
+      gap: 60px;
+    }
+  }
+
+  .about-unmuted__mission-title,
+  .about-unmuted__why-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 28px 0;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+    padding-top: 24px;
+  }
+
+  .about-unmuted__mission-title::before,
+  .about-unmuted__why-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--purple-500);
+    border-radius: 2px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .about-unmuted__mission-title,
+    .about-unmuted__why-title {
+      font-size: 1.75rem;
+      margin-bottom: 36px;
+      padding-top: 28px;
+    }
+
+    .about-unmuted__mission-title::before,
+    .about-unmuted__why-title::before {
+      width: 80px;
+      height: 4px;
+    }
+  }
+
+  .about-unmuted__mission-text,
+  .about-unmuted__why-text {
+    font-size: 1.0625rem;
+    color: #374151;
+    line-height: 1.9;
+    font-weight: 400;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 750px) {
+    .about-unmuted__mission-text,
+    .about-unmuted__why-text {
+      font-size: 1.1875rem;
+      line-height: 2;
+    }
+  }
+
+  .about-unmuted__mission-text p,
+  .about-unmuted__why-text p {
+    margin-bottom: 20px;
+  }
+
+  .about-unmuted__mission-text p:last-child,
+  .about-unmuted__why-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .about-unmuted__mission-text p:first-of-type,
+  .about-unmuted__why-text p:first-of-type {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #111827;
+  }
+
+  @media screen and (min-width: 750px) {
+    .about-unmuted__mission-text p:first-of-type,
+    .about-unmuted__why-text p:first-of-type {
+      font-size: 1.25rem;
+    }
+  }
+
+  /* Values Grid */
+  .about-unmuted__values {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    margin-top: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 750px) {
+    .about-unmuted__values {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+  }
+
+  .about-unmuted__value-card {
+    text-align: center;
+    padding: 48px 32px;
+    background: #FFFFFF !important;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  .about-unmuted__value-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  @media screen and (min-width: 750px) {
+    .about-unmuted__value-card {
+      padding: 56px 40px;
+    }
+  }
+
+  /* Icon Styling */
+  .about-unmuted__value-icon {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--purple-500), var(--pink-500));
+    border-radius: 50%;
+    box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
+  }
+
+  .about-unmuted__value-icon svg {
+    width: 48px;
+    height: 48px;
+    color: var(--white);
+  }
+
+  @media screen and (min-width: 750px) {
+    .about-unmuted__value-icon {
+      width: 112px;
+      height: 112px;
+      margin-bottom: 36px;
+    }
+
+    .about-unmuted__value-icon svg {
+      width: 56px;
+      height: 56px;
+    }
+  }
+
+  .about-unmuted__value-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  @media screen and (min-width: 750px) {
+    .about-unmuted__value-title {
+      font-size: 1.75rem;
+      margin-bottom: 24px;
+    }
+  }
+
+  .about-unmuted__value-description {
+    font-size: 1.0625rem;
+    color: #4B5563;
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .about-unmuted__value-description {
+      font-size: 1.125rem;
+      line-height: 1.9;
+    }
+  }
+
+  /* Animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .about-unmuted__story {
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .about-unmuted__value-card {
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .about-unmuted__value-card:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .about-unmuted__value-card:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .about-unmuted__value-card:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "About Unmuted",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "About Unmuted"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "mission_title",
+      "label": "Mission Title",
+      "default": "Our Mission"
+    },
+    {
+      "type": "richtext",
+      "id": "mission_text",
+      "label": "Mission Text",
+      "default": "<p>Diverse voices on 2010s teen dramas. Critical media analysis that's actually funny. We unpack representation, call out problematic tropes, and make media literacy entertaining.</p>"
+    },
+    {
+      "type": "text",
+      "id": "why_title",
+      "label": "Why We Exist Title",
+      "default": "Why This Store Exists"
+    },
+    {
+      "type": "richtext",
+      "id": "why_text",
+      "label": "Why We Exist Text",
+      "default": "<p>This merch store keeps our platform possible. Every purchase supports smart, funny pop culture commentary where every fan feels at home. We flip the script on traditional media criticism—making it accessible, diverse, and actually entertaining.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Visit Our Platform"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Font Awesome Icon Name",
+          "default": "lightbulb",
+          "info": "Enter icon name without 'fa-' prefix (e.g., 'lightbulb', 'users', 'graduation-cap')"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Smart Analysis, Actually Funny"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "We don't just recap—we analyze. Critical thinking that doesn't put you to sleep."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Unmuted",
+      "blocks": [
+        {
+          "type": "value",
+          "settings": {
+            "icon": "lightbulb",
+            "title": "Smart Analysis, Actually Funny",
+            "description": "We don't just recap—we analyze. Why did Glee's diversity storylines work or fail? What made Gossip Girl's class commentary so problematic? Critical thinking that doesn't put you to sleep."
+          }
+        },
+        {
+          "type": "value",
+          "settings": {
+            "icon": "users",
+            "title": "Multiple POVs, Real Representation",
+            "description": "Creators from different backgrounds break down the same shows. See how race, gender, sexuality, and class shape what we notice in these stories."
+          }
+        },
+        {
+          "type": "value",
+          "settings": {
+            "icon": "graduation-cap",
+            "title": "Media Literacy Made Fun",
+            "description": "Learn to spot good and bad representation while laughing. We make media criticism accessible—no film degree required."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
