@@ -1,12 +1,15 @@
 {
   "sections": {
-    "main": {
-      "type": "main-page",
+    "coming_soon": {
+      "type": "coming-soon",
       "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
+        "icon": "💬",
+        "heading": "Community Coming Soon",
+        "message": "Join our growing community of teen drama fans! We're building a space for meaningful discussions. Stay tuned for updates.",
+        "button_label": "Shop Merch",
+        "button_link": "/collections/all"
       }
     }
   },
-  "order": ["main"]
+  "order": ["coming_soon"]
 }

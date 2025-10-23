@@ -1,12 +1,15 @@
 {
   "sections": {
-    "main": {
-      "type": "main-page",
+    "coming_soon": {
+      "type": "coming-soon",
       "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
+        "icon": "🎬",
+        "heading": "Playlists Coming Soon",
+        "message": "We're curating amazing content for you! Check back soon for our full video playlists featuring deep dives into your favorite teen dramas.",
+        "button_label": "Shop Merch",
+        "button_link": "/collections/all"
       }
     }
   },
-  "order": ["main"]
+  "order": ["coming_soon"]
 }

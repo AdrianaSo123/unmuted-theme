@@ -1,0 +1,134 @@
+{% comment %}
+  Coming Soon Section - For placeholder pages
+{% endcomment %}
+
+<section class="coming-soon">
+  <div class="coming-soon__container page-width">
+    <div class="coming-soon__content">
+      {%- if section.settings.icon != blank -%}
+        <div class="coming-soon__icon">
+          {{ section.settings.icon }}
+        </div>
+      {%- endif -%}
+      
+      {%- if section.settings.heading != blank -%}
+        <h1 class="coming-soon__heading">{{ section.settings.heading }}</h1>
+      {%- endif -%}
+      
+      {%- if section.settings.message != blank -%}
+        <p class="coming-soon__message">{{ section.settings.message }}</p>
+      {%- endif -%}
+      
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_link }}" class="btn-primary">
+          {{ section.settings.button_label }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .coming-soon {
+    padding: 120px 0;
+    background: linear-gradient(135deg, var(--purple-500), var(--pink-500));
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .coming-soon__container {
+    max-width: 800px;
+  }
+
+  .coming-soon__content {
+    text-align: center;
+    color: var(--white);
+  }
+
+  .coming-soon__icon {
+    font-size: 4rem;
+    margin-bottom: 24px;
+  }
+
+  .coming-soon__heading {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--white);
+  }
+
+  @media screen and (min-width: 750px) {
+    .coming-soon__heading {
+      font-size: 3.5rem;
+    }
+  }
+
+  .coming-soon__message {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-bottom: 32px;
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--white);
+    color: var(--purple-500);
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Coming Soon",
+  "settings": [
+    {
+      "type": "text",
+      "id": "icon",
+      "label": "Icon (emoji)",
+      "default": "🎬"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Coming Soon"
+    },
+    {
+      "type": "textarea",
+      "id": "message",
+      "label": "Message",
+      "default": "We're working on something exciting! Check back soon for updates."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Back to Home"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "/"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Coming Soon"
+    }
+  ]
+}
+{% endschema %}
