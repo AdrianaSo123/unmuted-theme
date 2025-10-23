@@ -1,0 +1,398 @@
+{% comment %}
+  Custom Unmuted Footer
+{% endcomment %}
+
+<footer class="unmuted-footer">
+  <div class="unmuted-footer__container page-width">
+    <div class="unmuted-footer__grid">
+      
+      {%- comment -%} Brand Column {%- endcomment -%}
+      <div class="unmuted-footer__column">
+        {%- if section.settings.logo != blank -%}
+          <img src="{{ section.settings.logo | image_url: width: 150 }}" alt="Unmuted" class="unmuted-footer__logo">
+        {%- else -%}
+          <h3 class="unmuted-footer__brand">{{ section.settings.brand_name }}</h3>
+        {%- endif -%}
+        
+        {%- if section.settings.tagline != blank -%}
+          <p class="unmuted-footer__tagline">{{ section.settings.tagline }}</p>
+        {%- endif -%}
+        
+        {%- if section.settings.email != blank -%}
+          <p class="unmuted-footer__contact">
+            <strong>Email:</strong> <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+          </p>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Featured Shows Column {%- endcomment -%}
+      <div class="unmuted-footer__column">
+        <h4 class="unmuted-footer__heading">Featured Shows</h4>
+        <ul class="unmuted-footer__list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'show_link' -%}
+              <li>
+                <a href="{{ block.settings.link }}">{{ block.settings.title }}</a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      {%- comment -%} Quick Links Column {%- endcomment -%}
+      <div class="unmuted-footer__column">
+        <h4 class="unmuted-footer__heading">Quick Links</h4>
+        <ul class="unmuted-footer__list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'quick_link' -%}
+              <li>
+                <a href="{{ block.settings.link }}">{{ block.settings.title }}</a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      {%- comment -%} Connect Column {%- endcomment -%}
+      <div class="unmuted-footer__column">
+        <h4 class="unmuted-footer__heading">Connect With Us</h4>
+        <div class="unmuted-footer__social">
+          {%- if section.settings.instagram_url != blank -%}
+            <a href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+          {%- endif -%}
+          
+          {%- if section.settings.tiktok_url != blank -%}
+            <a href="{{ section.settings.tiktok_url }}" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+              </svg>
+            </a>
+          {%- endif -%}
+          
+          {%- if section.settings.youtube_url != blank -%}
+            <a href="{{ section.settings.youtube_url }}" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
+          {%- endif -%}
+          
+          {%- if section.settings.twitter_url != blank -%}
+            <a href="{{ section.settings.twitter_url }}" target="_blank" rel="noopener" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+              </svg>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+    </div>
+
+    {%- comment -%} Bottom Bar {%- endcomment -%}
+    <div class="unmuted-footer__bottom">
+      <p class="unmuted-footer__copyright">
+        © {{ 'now' | date: '%Y' }} {{ section.settings.brand_name }}. All rights reserved.
+      </p>
+      {%- if section.settings.show_back_to_top -%}
+        <a href="#" class="unmuted-footer__back-to-top">Back to Top ↑</a>
+      {%- endif -%}
+    </div>
+  </div>
+</footer>
+
+<style>
+  .unmuted-footer {
+    background: #1F2937;
+    color: #F9FAFB;
+    padding: 60px 0 24px;
+  }
+
+  .unmuted-footer__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .unmuted-footer__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .unmuted-footer__grid {
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    }
+  }
+
+  .unmuted-footer__logo {
+    max-width: 150px;
+    margin-bottom: 16px;
+  }
+
+  .unmuted-footer__brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, var(--purple-500), var(--pink-500));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .unmuted-footer__tagline {
+    font-size: 0.9375rem;
+    color: #D1D5DB;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .unmuted-footer__contact {
+    font-size: 0.875rem;
+    color: #D1D5DB;
+  }
+
+  .unmuted-footer__contact a {
+    color: #F9FAFB;
+    text-decoration: none;
+  }
+
+  .unmuted-footer__contact a:hover {
+    color: var(--pink-500);
+  }
+
+  .unmuted-footer__heading {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #F9FAFB;
+  }
+
+  .unmuted-footer__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .unmuted-footer__list li {
+    margin-bottom: 12px;
+  }
+
+  .unmuted-footer__list a {
+    color: #D1D5DB;
+    text-decoration: none;
+    font-size: 0.9375rem;
+    transition: color 0.2s ease;
+  }
+
+  .unmuted-footer__list a:hover {
+    color: var(--pink-500);
+  }
+
+  .unmuted-footer__social {
+    display: flex;
+    gap: 16px;
+  }
+
+  .unmuted-footer__social a {
+    color: #D1D5DB;
+    transition: color 0.2s ease;
+  }
+
+  .unmuted-footer__social a:hover {
+    color: var(--pink-500);
+  }
+
+  .unmuted-footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 1px solid #374151;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .unmuted-footer__copyright {
+    font-size: 0.875rem;
+    color: #9CA3AF;
+    margin: 0;
+  }
+
+  .unmuted-footer__back-to-top {
+    color: #D1D5DB;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s ease;
+  }
+
+  .unmuted-footer__back-to-top:hover {
+    color: var(--pink-500);
+  }
+</style>
+
+<script>
+  // Smooth scroll to top
+  document.querySelectorAll('.unmuted-footer__back-to-top').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Unmuted Footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand Name",
+      "default": "Unmuted"
+    },
+    {
+      "type": "textarea",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "A hub that flips the script — smart, funny pop culture commentary where every fan feels at home"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "hello@unmuted.com"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "tiktok_url",
+      "label": "TikTok URL"
+    },
+    {
+      "type": "url",
+      "id": "youtube_url",
+      "label": "YouTube URL"
+    },
+    {
+      "type": "url",
+      "id": "twitter_url",
+      "label": "Twitter URL"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_back_to_top",
+      "label": "Show Back to Top link",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "show_link",
+      "name": "Show Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Show Title",
+          "default": "Gossip Girl"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link",
+          "default": "/pages/playlist"
+        }
+      ]
+    },
+    {
+      "type": "quick_link",
+      "name": "Quick Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Link Title",
+          "default": "Our Mission"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Unmuted Footer",
+      "blocks": [
+        {
+          "type": "show_link",
+          "settings": {
+            "title": "Gossip Girl",
+            "link": "/pages/playlist"
+          }
+        },
+        {
+          "type": "show_link",
+          "settings": {
+            "title": "Pretty Little Liars",
+            "link": "/pages/playlist"
+          }
+        },
+        {
+          "type": "show_link",
+          "settings": {
+            "title": "Teen Wolf",
+            "link": "/pages/playlist"
+          }
+        },
+        {
+          "type": "show_link",
+          "settings": {
+            "title": "The Vampire Diaries",
+            "link": "/pages/playlist"
+          }
+        },
+        {
+          "type": "quick_link",
+          "settings": {
+            "title": "Our Mission",
+            "link": "#about-unmuted"
+          }
+        },
+        {
+          "type": "quick_link",
+          "settings": {
+            "title": "Community Voices",
+            "link": "/pages/community"
+          }
+        },
+        {
+          "type": "quick_link",
+          "settings": {
+            "title": "Join the Conversation",
+            "link": "/pages/community"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
